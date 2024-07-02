@@ -1,0 +1,16 @@
+def transpose(matrix):
+    
+    rows = len(matrix)
+    cols = len(matrix[0]) if rows > 0 else 0
+    
+   
+    transpose_matrix = []
+    
+    for col in range(cols):
+        new_row = []
+        for row in range(rows):
+            new_row.append(matrix[row][col])
+       
+        transpose_matrix.append(new_row)
+    
+    return transpose_matrix
