@@ -1,0 +1,30 @@
+def plus_one(digits):
+    n = len(digits)
+    for i in range(n - 1, -1, -1):
+        if digits[i] < 9:
+            digits[i] += 1
+            return digits
+        else:
+            digits[i] = 0
+   
+    return [1] + digits
+
+def get_input():
+    while True:
+        try:
+            user_input = input("Enter a large integer (digits separated by spaces): ")
+            digits = list(map(int, user_input.split()))
+           
+            if all(0 <= digit <= 9 for digit in digits):
+                return digits
+            else:
+                print("Invalid input. Please enter digits between 0 and 9 only.")
+        except ValueError:
+            print("Invalid input. Please enter digits separated by spaces.")
+
+
+digits = get_input()
+
+result = plus_one(digits)
+
+print("Incremented large integer:", result)
